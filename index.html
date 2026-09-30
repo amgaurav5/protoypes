@@ -10,22 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body>
-  <section class="auth-gate" id="authGate" aria-labelledby="authTitle">
-    <form class="auth-card" id="authForm">
-      <a class="brand auth-brand" href="#"><span class="brand-mark">o</span><span>orbit</span></a>
-      <p class="eyebrow">AI-NATIVE REVENUE WORKSPACE</p>
-      <h1 id="authTitle">Welcome back</h1>
-      <p class="auth-description" id="authDescription">Sign in to your private workspace.</p>
-      <label for="authEmail">Work email</label><input id="authEmail" type="email" autocomplete="email" required />
-      <label for="authPassword">Password</label><input id="authPassword" type="password" autocomplete="current-password" minlength="10" required />
-      <label class="workspace-name-field" id="workspaceNameField" for="workspaceName">Workspace name</label><input class="workspace-name-field" id="workspaceName" maxlength="120" placeholder="Acme Inc." />
-      <button class="button-primary auth-submit" id="authSubmit" type="submit">Sign in</button>
-      <p class="auth-message" id="authMessage" role="status"></p>
-      <div class="auth-links"><button type="button" id="authModeToggle">Create an account</button><button type="button" id="resetPassword">Forgot password?</button></div>
-      <p class="auth-config" id="authConfig">Checking secure sign-in…</p>
-    </form>
-  </section>
+<body class="authenticated">
   <div class="app-shell">
     <aside class="sidebar">
       <a class="brand" href="#overview" aria-label="Orbit home"><span class="brand-mark">o</span><span>orbit</span></a>
@@ -44,7 +29,7 @@
         <button class="nav-item" data-view="activity"><span class="nav-icon sparkle">✳</span> Activity log</button>
         <button class="nav-item" data-view="approvals"><span class="nav-icon">◷</span> Approvals <span class="nav-count warm" id="approvalNavCount">1</span></button>
       </nav>
-      <div class="sidebar-bottom"><div class="integration-card"><div class="integration-title"><span class="pulse"></span> AI is ready</div><p>Connected to your revenue data</p><button class="text-button" data-view="integrations">Manage integrations <span>→</span></button></div><button class="nav-item" data-view="settings"><span class="nav-icon">⚙</span> Settings</button><div class="profile"><div class="profile-avatar" id="profileInitials">—</div><div><strong id="profileName">Signed in</strong><small id="profileEmail">Account</small></div><button class="signout-button" id="signOut" type="button">Sign out</button></div></div>
+      <div class="sidebar-bottom"><div class="integration-card"><div class="integration-title"><span class="pulse"></span> Demo mode</div><p>CRM data stays in this browser</p><button class="text-button" data-view="integrations">Manage integrations <span>→</span></button></div><button class="nav-item" data-view="settings"><span class="nav-icon">⚙</span> Settings</button><div class="profile"><div class="profile-avatar" id="profileInitials">AM</div><div><strong id="profileName">Alex Morgan</strong><small id="profileEmail">Local demo</small></div></div></div>
     </aside>
 
     <main class="main-area">
@@ -61,8 +46,6 @@
     </form>
   </dialog>
   <div class="toast-region" id="toastRegion" aria-live="polite"></div>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-  <script src="auth.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

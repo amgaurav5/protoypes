@@ -1,10 +1,10 @@
 # Orbit — AI-native revenue workspace
 
-Orbit is an early CRM build. Company, contact, deal, and task forms now create workspace records; companies include clickable website URLs. CRM tasks and deal-stage updates save to Supabase when configured, with browser-local storage as a development fallback. ViaSocket connection prompts are action-aware, but Gmail, Calendar, and Slack execution is still unavailable pending their exact published action schemas.
+Orbit is an early CRM build. Login is temporarily bypassed with a local demo profile so visitors can open the app without Supabase email verification or password sign-in. CRM demo changes stay in that browser and are not synced. Supabase authentication remains in `auth.js`; change `DEMO_MODE` to `false` there when the login flow is ready again. Company, contact, deal, and task forms now create workspace records; companies include clickable website URLs. CRM tasks and deal-stage updates save to Supabase when configured, with browser-local storage as a development fallback. ViaSocket connection prompts are action-aware, but Gmail, Calendar, and Slack execution is still unavailable pending their exact published action schemas.
 
 ## Run locally
 
-This project is a static frontend plus Vercel serverless functions. The sign-in screen requires the Vercel function `/api/auth-config` and the Supabase settings below; opening `index.html` directly will not provide authentication.
+This project is a static frontend plus Vercel serverless functions. Temporary demo mode opens the workspace without login. Production Supabase sign-in is retained in `auth.js` behind `DEMO_MODE = false`; opening `index.html` directly still will not provide the server functions.
 
 ## What works today
 

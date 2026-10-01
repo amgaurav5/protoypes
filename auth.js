@@ -1,4 +1,6 @@
 (() => {
+  // Temporary public demo switch. Supabase Auth remains in this file for later restoration.
+  const DEMO_MODE = true;
   const gate = document.querySelector('#authGate');
   const form = document.querySelector('#authForm');
   const submit = document.querySelector('#authSubmit');
@@ -117,6 +119,23 @@
     if (error) setMessage(error.message, 'error');
   });
 
-  setMode(false);
-  initialize();
+  if (DEMO_MODE) {
+    window.orbitDemoMode = true;
+    setMode(false);
+    modeToggle.hidden = true;
+    document.querySelector('#resetPassword').hidden = true;
+    submit.hidden = true;
+    form.querySelectorAll('label, input').forEach((element) => { element.hidden = true; });
+    configStatus.textContent = 'Temporary demo mode — no account required';
+    document.querySelector('#signOut').hidden = true;
+    showApp({
+      id: 'orbit-local-demo',
+      email: 'Local demo — this browser only',
+      user_metadata: { full_name: 'Demo User', workspace_name: 'Orbit Demo Workspace' },
+    });
+  } else {
+    window.orbitDemoMode = false;
+    setMode(false);
+    initialize();
+  }
 })();
